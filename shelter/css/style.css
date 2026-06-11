@@ -70,6 +70,10 @@ img {
 	--footer-gradient-background: #211f20;
 }
 
+body {
+  font-family: var(--font-secondary);
+  color: var(--color-dark-l);
+}
 
 .page {
   min-width: 1280px;
@@ -80,3 +84,8 @@ img {
   margin: 0 auto;
 }
 
+.background-noise {
+  background:
+    url("../assets/images/noise_transparent.png") repeat,
+    #513D2F;
+}
