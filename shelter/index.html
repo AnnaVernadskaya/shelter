@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shelter for pets in Boston</title>
+    <link rel="stylesheet" href="./assets/fonts/fonts.css" />
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <div class="page">
       <header class="header background-noise">
-        <div class="container">
+        <div class="container header-container">
           <a class="logo" href="./index.html">
             <span class="logo__title">Cozy House</span>
             <span class="logo__subtitle">Shelter for pets in Boston</span>
@@ -39,7 +40,7 @@
       </header>
       <main>
         <section class="not-only background-noise">
-          <div class="container">
+          <div class="container container-not-only">
             <div class="not-only__content">
               <h1 class="not-only__title">Not only people need a house</h1>
               <p class="not-only__text">
@@ -59,13 +60,13 @@
         </section>
 
         <section class="about" id="about">
-          <div class="container">
+          <div class="container container-about">
             <div class="about__img">
               <img src="./assets/images/about-pets.png" alt="cat and dog" />
             </div>
 
             <div class="about__content">
-              <h2 class="about__title">About the shelter “Cozy House”</h2>
+              <h2 class="about__title">About the shelter “Cozy&nbsp;House”</h2>
               <p class="about__text">
                 Currently we have 121 dogs and 342 cats on our hands and
                 statistics show that only 20% of them will find a family. The
@@ -85,17 +86,27 @@
         </section>
 
         <section class="our-friends" id="our-friends">
-          <div class="container">
+          <div class="container container-our-friends">
             <h2 class="our-friends__title">
-              Our friends who are looking for a house
+              Our friends who are&nbsp;looking for a house
             </h2>
 
             <div class="our-friends__slider">
               <button
-                class="our-friends__button our-friends__button--prev"
+                class="our-friends__button-slider our-friends__button-slider--prev"
                 type="button"
                 aria-label="Previous slide"
-              ></button>
+              >
+                <svg
+                  width="14"
+                  height="6"
+                  viewBox="0 0 14 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M14 2V4H3V6L0 3L3 0V2H14Z" fill="#292929" />
+                </svg>
+              </button>
               <div class="our-friends__slider-viewport">
                 <ul class="our-friends__list">
                   <li class="our-friends__list-item">
@@ -140,13 +151,23 @@
                 </ul>
               </div>
               <button
-                class="our-friends__button our-friends__button--next"
+                class="our-friends__button-slider our-friends__button-slider--next"
                 type="button"
                 aria-label="Next slide"
-              ></button>
+              >
+                <svg
+                  width="14"
+                  height="6"
+                  viewBox="0 0 14 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M14 2V4H3V6L0 3L3 0V2H14Z" fill="#292929" />
+                </svg>
+              </button>
             </div>
 
-            <a class="our-friends__button" href="./pets.html"
+            <a class="our-friends__button-get" href="./pets.html"
               >Get to know the rest</a
             >
           </div>
@@ -249,7 +270,7 @@
         </section>
 
         <section class="in-addition">
-          <div class="container">
+          <div class="container container-in-addition">
             <div class="in-addition__img">
               <img src="./assets/images/donation-dog.png" alt="dog" />
             </div>
@@ -283,7 +304,7 @@
         </section>
       </main>
       <footer class="footer" id="contacts">
-        <div class="container">
+        <div class="container container-footer">
           <div class="footer-questions">
             <h2 class="footer-questions__title">
               For questions and suggestions
