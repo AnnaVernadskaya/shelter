@@ -180,6 +180,10 @@ body {
   display: inline-block;
 }
 
+.not-only__button:hover {
+  background-color: var(--color-primary-light);
+}
+
 .not-only__img img {
   width: 698px;
 }
@@ -261,6 +265,10 @@ body {
   display: inline-block;
 }
 
+.our-friends__button-get:hover {
+  background-color: var(--color-primary-light);
+}
+
 .our-friends__button-slider {
   width: 52px;
   height: 52px;
@@ -322,8 +330,19 @@ body {
   margin-bottom: 30px;
 }
 
+.our-friends__card:hover .our-friends__card-button {
+  background-color: var(--color-primary);
+}
+
 .our-friends__button-slider--next {
   transform: rotate(180deg);
+}
+.our-friends__button-slider--next:hover {
+  background-color: var(--color-primary);
+}
+
+.our-friends__button-slider--prev:hover {
+  background-color: var(--color-primary);
 }
 
 /* HELP */
@@ -419,6 +438,10 @@ body {
   border-radius: 9px;
   padding: 10px 15px;
   max-width: 350px;
+}
+
+.donation-card:hover {
+  background-color: var(--color-primary-light);
 }
 
 .donation-card__icon {
