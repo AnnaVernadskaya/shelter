@@ -1,0 +1,72 @@
+.header-container {
+  padding-bottom: 25px;
+}
+.logo__title {
+  color: var(--color-dark-l);
+}
+
+.logo__subtitle {
+  color: var(--color-dark-3xl);
+}
+
+.header-nav__list-link-pets {
+  color: var(--color-dark-l);
+}
+.header-nav__list-link--active {
+  color: var(--color-dark-3xl);
+}
+
+.pets-page {
+  background-color: var(--color-light-l);
+}
+
+.pets-page__title {
+  font-family: var(--font-primary);
+font-weight: 400;
+font-size: 35px;
+line-height: 130%;
+letter-spacing: 0.06em;
+text-align: center;
+color: var(--color-dark-l);
+max-width: 400px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 80px 0 60px;
+}
+
+.pets-page__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px 40px;
+}
+
+.pets-page__pagination {
+  display: flex;
+  gap: 20px;
+  max-width: 340px;
+  margin: 0 auto;
+  padding: 50px 0 100px;
+}
+
+.pagination-button {
+  width: 52px;
+  height: 52px;
+  border: solid 2px var(--color-primary);
+  border-radius: 50%;
+}
+
+.pagination-button--active {
+  background-color: var(--color-primary);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+}
+
+.pagination-button--disabled {
+  border: solid 2px var(--color-dark-s);
+}
+
+.footer {
+  padding-top: 45px;
+}
