@@ -47,12 +47,13 @@ max-width: 400px;
   max-width: 340px;
   margin: 0 auto;
   padding: 50px 0 100px;
+  color: var(--color-dark-3xl);
 }
 
 .pagination-button {
   width: 52px;
   height: 52px;
-  border: solid 2px var(--color-primary-light);
+  border: solid 2px var(--color-primary);
   border-radius: 50%;
 }
 
@@ -61,7 +62,7 @@ max-width: 400px;
 }
 
 .pagination-button--active {
-  background-color: var(--color-primary-light);
+  background-color: var(--color-primary);
   width: 52px;
   height: 52px;
   border-radius: 50%;
@@ -70,7 +71,7 @@ max-width: 400px;
 .pagination-button--disabled {
   border: solid 2px var(--color-dark-s);
   background-color: transparent;
-  cursor: default;
+    cursor: default;
   pointer-events: none;
 }
 
