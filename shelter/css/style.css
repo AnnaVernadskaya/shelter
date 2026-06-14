@@ -91,7 +91,12 @@ body {
 .background-noise {
   background:
     url("../assets/images/noise_transparent.png") repeat,
-    #513d2f;
+    radial-gradient(
+      100% 215.42% at 0% 0%,
+      #5b483a 0%,
+      #262425 100%
+    ),
+    #211f20;
 }
 
 .header-container {
@@ -137,6 +142,8 @@ body {
 .header-nav__list-link--active {
   color: var(--color-light-s);
   border-bottom: solid 3px var(--color-primary);
+  cursor: default;
+  pointer-events: none;
 }
 
 /* NOT-ONLY */
@@ -302,6 +309,12 @@ body {
   overflow: hidden;
   border-radius: 9px;
   background-color: var(--color-light-s);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.our-friends__card:hover {
+  transform: translateY(-3px);
 }
 
 .our-friends__card-img {

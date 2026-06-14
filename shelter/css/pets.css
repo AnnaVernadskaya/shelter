@@ -52,12 +52,16 @@ max-width: 400px;
 .pagination-button {
   width: 52px;
   height: 52px;
-  border: solid 2px var(--color-primary);
+  border: solid 2px var(--color-primary-light);
   border-radius: 50%;
 }
 
+.pagination-button:not(.pagination-button--disabled):hover {
+  background-color: var(--color-primary-light);
+}
+
 .pagination-button--active {
-  background-color: var(--color-primary);
+  background-color: var(--color-primary-light);
   width: 52px;
   height: 52px;
   border-radius: 50%;
@@ -65,6 +69,9 @@ max-width: 400px;
 
 .pagination-button--disabled {
   border: solid 2px var(--color-dark-s);
+  background-color: transparent;
+  cursor: default;
+  pointer-events: none;
 }
 
 .footer {
