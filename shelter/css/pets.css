@@ -16,19 +16,23 @@
   color: var(--color-dark-3xl);
 }
 
+.burger {
+  display: none;
+}
+
 .pets-page {
   background-color: var(--color-light-l);
 }
 
 .pets-page__title {
   font-family: var(--font-primary);
-font-weight: 400;
-font-size: 35px;
-line-height: 130%;
-letter-spacing: 0.06em;
-text-align: center;
-color: var(--color-dark-l);
-max-width: 400px;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  text-align: center;
+  color: var(--color-dark-l);
+  max-width: 400px;
   text-align: center;
   margin: 0 auto;
   padding: 80px 0 60px;
@@ -71,6 +75,92 @@ max-width: 400px;
 .pagination-button--disabled {
   border: solid 2px var(--color-dark-s);
   background-color: transparent;
-    cursor: default;
+  cursor: default;
   pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .pets-page__title {
+    padding-bottom: 30px;
+  }
+
+    .pets-page__item:nth-child(n + 7) {
+    display: none;
+  }
+
+  .pets-page__list {
+    gap: 30px 40px;
+  }
+
+  .pets-page__title {
+    padding-bottom: 30px;
+  }
+
+  .pets-page__pagination {
+    padding-top: 40px;
+    padding-bottom: 76px;
+  }
+}
+
+@media (max-width: 320px) {
+  .container {
+    max-width: 300px;
+  }
+
+  .header-pets {
+    max-width: 300px;
+    margin: 0 auto;
+    display: flex;
+    padding: 30px 10px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-container {
+    padding: 0;
+  }
+
+  .pets-page__title {
+    text-align: center;
+    font-size: 25px;
+    padding: 38px 0;
+  }
+
+  .header-nav {
+    display: none;
+  }
+
+  .burger {
+    width: 30px;
+    height: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 30px;
+  }
+
+  .burger span {
+    width: 30px;
+    height: 2px;
+    background-color: #000000;
+  }
+
+  .pets-page__item:nth-child(n + 4) {
+    display: none;
+  }
+
+  .pets-page__list {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .pets-page__pagination {
+    gap: 10px;
+    padding-top: 42px;
+    padding-bottom: 42px;
+  }
 }

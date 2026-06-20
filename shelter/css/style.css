@@ -757,6 +757,7 @@ body {
   .about__text {
     max-width: 270px;
     align-self: center;
+    text-align: justify;
   }
 
   .about__img {
@@ -819,12 +820,16 @@ body {
 
   .help__list-item {
     width: 130px;
-    gap: 10px;
+    gap: 15px;
   }
 
   .help__list-item-text {
     font-size: 15px;
   }
+
+  .help__list-item-img {
+  width: 55px;
+}
 
   .container-in-addition {
     gap: 32px;
