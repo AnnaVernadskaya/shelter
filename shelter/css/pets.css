@@ -14,11 +14,11 @@
   transition: color 0.3s ease;
 }
 
-.header-nav__list-link-pets:hover {
+.header-nav__list-link--active {
   color: var(--color-dark-3xl);
 }
 
-.header-nav__list-link--active {
+.header-nav__list-link-pets:not(.header-nav__list-link--active):hover {
   color: var(--color-dark-3xl);
 }
 
@@ -93,16 +93,12 @@
     padding-bottom: 30px;
   }
 
-    .pets-page__item:nth-child(n + 7) {
+  .pets-page__item:nth-child(n + 7) {
     display: none;
   }
 
   .pets-page__list {
     gap: 30px 40px;
-  }
-
-  .pets-page__title {
-    padding-bottom: 30px;
   }
 
   .pets-page__pagination {

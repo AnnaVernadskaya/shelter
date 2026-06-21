@@ -362,7 +362,7 @@ body {
 
 .our-friends__card:hover .our-friends__card-button {
   background-color: var(--color-primary-light);
-    border: solid 2px var(--color-primary-light);
+  border: solid 2px var(--color-primary-light);
 }
 
 .our-friends__button-slider--next:hover {
@@ -556,7 +556,6 @@ body {
   flex-direction: column;
   gap: 32px;
   max-width: 300px;
-  transition: color 0.3s ease;
 }
 
 .footer-questions,
@@ -594,6 +593,7 @@ body {
   line-height: 115%;
   letter-spacing: 0.06em;
   color: var(--color-primary);
+  transition: color 0.3s ease;
 }
 
 .footer-address__link:hover {
@@ -857,8 +857,8 @@ body {
   }
 
   .help__list-item-img {
-  width: 55px;
-}
+    width: 55px;
+  }
 
   .container-in-addition {
     gap: 32px;
