@@ -925,3 +925,10 @@ body {
     width: 260px;
   }
 }
+
+@media (max-width: 330px) {
+  .in-addition__text {
+    text-align: justify;
+    margin: 0 10px;
+  }
+}

@@ -170,3 +170,9 @@
     padding-bottom: 42px;
   }
 }
+
+@media (max-width: 330px) {
+    .burger {
+        margin-bottom: 0;
+    }
+}
