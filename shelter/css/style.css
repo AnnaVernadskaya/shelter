@@ -743,7 +743,61 @@ body {
   }
 
   .header-nav {
-    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 320px;
+    height: 100vh;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    background-color: var(--color-dark-3xl);
+  }
+  .header-nav__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 40px;
+  }
+  .header-nav__list-link {
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 160%;
+  }
+
+  .header-nav.is-active {
+    transform: translateX(0);
+    z-index: 200;
+  }
+
+  .burger {
+    z-index: 300;
+    transition: transform 0.3s ease;
+  }
+
+  .burger.is-active {
+    transform: rotate(90deg);
+  }
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(41, 41, 41, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+
+    z-index: 100;
+  }
+
+  .overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  body.menu-open {
+    overflow: hidden;
   }
 
   .burger {
