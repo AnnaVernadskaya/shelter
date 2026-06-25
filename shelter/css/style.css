@@ -641,6 +641,12 @@ body {
   width: 300px;
 }
 
+
+
+
+
+
+
 @media (max-width: 1220px) {
   .our-friends__slider {
     grid-template-columns: 52px minmax(0, 580px) 52px;
