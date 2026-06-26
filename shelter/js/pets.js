@@ -1,12 +1,12 @@
 console.log('JS connected pets');
 
-import { renderCards } from './cards.js';
-import { loadPets } from './cards.js';
+import { loadPets } from './data.js';
+import { initPagination } from './pagination.js';
 
-async function init() {
-    const pets = await loadPets();
+async function initPetsPage() {
+  const pets = await loadPets();
 
-    renderCards(pets);
+  initPagination(pets);
 }
 
-init();
+initPetsPage();

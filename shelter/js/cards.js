@@ -1,10 +1,3 @@
-export async function loadPets() {
-  const response = await fetch('./data/pets.json');
-
-
-  return await response.json();
-}
-
 
 export function renderCards(pets) {
   const listCards = document.querySelector('.pets-page__list');
@@ -23,6 +16,7 @@ export function renderCards(pets) {
     return cardItem;
 }
 
+listCards.innerHTML = '';
 
 pets.forEach((card) => {
   listCards.append(createCard(card));
