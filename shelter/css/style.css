@@ -80,6 +80,10 @@ body {
   color: var(--color-dark-l);
 }
 
+body.popup-open {
+  overflow: hidden;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -1042,6 +1046,7 @@ body {
 .popup__content {
   position: relative;
   display: flex;
+    align-items: stretch;
   width: 900px;
   min-height: 500px;
   background-color: var(--color-light-s);
@@ -1060,11 +1065,15 @@ body {
   cursor: pointer;
 }
 
+  .popup__close:hover {
+    background-color: var(--color-primary);
+}
+
 .popup__img {
   width: 500px;
   height: 500px;
   object-fit: cover;
-  border-radius: 9px 0 0 9px;
+  border-radius: 9px;
 }
 
 .popup__info {
@@ -1123,7 +1132,7 @@ body {
 
   .popup__img {
     width: 350px;
-    height: 350px;
+    height: auto;
   }
 
   .popup__info {
