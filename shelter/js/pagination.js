@@ -28,23 +28,39 @@ export function initPagination(petsArray) {
   const buttonPrev = document.querySelector('.pagination-button--prev');
   const buttonNext = document.querySelector('.pagination-button--next');
   const buttonCurrent = document.querySelector('.pagination-button--current');
+const buttonFirst = document.querySelector('.pagination-button--first');
+const buttonLast = document.querySelector('.pagination-button--last');
+
 
   function updateButtonsState() {
     if (currentPage === 1) {
       buttonPrev.classList.add('pagination-button--disabled');
+      buttonFirst.classList.add('pagination-button--disabled');
       buttonPrev.disabled = true;
+      buttonFirst.disabled = true;
     } else {
       buttonPrev.classList.remove('pagination-button--disabled');
       buttonPrev.disabled = false;
+            buttonFirst.classList.remove('pagination-button--disabled');
+      buttonFirst.disabled = false;
+
     }
 
     if (currentPage === totalPages) {
       buttonNext.classList.add('pagination-button--disabled');
+      buttonLast.classList.add('pagination-button--disabled');
+
       buttonNext.disabled = true;
+      buttonLast.disabled = true;
     } else {
       buttonNext.classList.remove('pagination-button--disabled');
       buttonNext.disabled = false;
+      buttonLast.classList.remove('pagination-button--disabled');
+      buttonLast.disabled = false;
     }
+
+
+
   }
 
   function renderPage() {
