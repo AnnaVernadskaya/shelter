@@ -641,12 +641,6 @@ body {
   width: 300px;
 }
 
-
-
-
-
-
-
 @media (max-width: 1220px) {
   .our-friends__slider {
     grid-template-columns: 52px minmax(0, 580px) 52px;
@@ -758,6 +752,7 @@ body {
     transition: transform 0.3s ease;
     background-color: var(--color-dark-3xl);
   }
+
   .header-nav__list {
     display: flex;
     flex-direction: column;
@@ -766,6 +761,7 @@ body {
     height: 100%;
     gap: 40px;
   }
+
   .header-nav__list-link {
     font-weight: 400;
     font-size: 32px;
@@ -1029,8 +1025,6 @@ body {
   }
 }
 
-
-
 .popup {
   position: fixed;
   inset: 0;
@@ -1039,7 +1033,6 @@ body {
   justify-content: center;
   align-items: center;
   background-color: rgba(41, 41, 41, 0.6);
-
 }
 
 .popup.is-active {
