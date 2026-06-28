@@ -53,4 +53,4 @@ function initPopup() {
   });
 }
 
-export { initPopup, openPopup, initStaticCardsPopup };
+export { initPopup, openPopup };
