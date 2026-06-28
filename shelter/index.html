@@ -7,45 +7,50 @@
     <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg">
     <link rel="stylesheet" href="./assets/fonts/fonts.css">
     <link rel="stylesheet" href="./css/style.css">
+    <script type="module" src="./js/main.js"></script>
   </head>
   <body>
     <div class="page">
       <div class="background-noise">
-      <header class="header">
-        <div class="container header-container">
-          <a class="logo" href="./index.html">
-            <span class="logo__title">Cozy House</span>
-            <span class="logo__subtitle">Shelter for pets in Boston</span>
-          </a>
+        <header class="header">
+          <div class="container header-container">
+            <a class="logo" href="./index.html">
+              <span class="logo__title">Cozy House</span>
+              <span class="logo__subtitle">Shelter for pets in Boston</span>
+            </a>
 
-          <nav class="header-nav">
-            <ul class="header-nav__list">
-              <li class="header-nav__list-item">
-                <a class="header-nav__list-link header-nav__list-link--active"
-                  >About the shelter</a
-                >
-              </li>
-              <li class="header-nav__list-item">
-                <a class="header-nav__list-link" href="./pets.html">Our pets</a>
-              </li>
-              <li class="header-nav__list-item">
-                <a class="header-nav__list-link" href="#help"
-                  >Help the shelter</a
-                >
-              </li>
-              <li class="header-nav__list-item">
-                <a class="header-nav__list-link" href="#contacts">Contacts</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+            <nav class="header-nav">
+              <ul class="header-nav__list">
+                <li class="header-nav__list-item">
+                  <a class="header-nav__list-link header-nav__list-link--active"
+                    >About the shelter</a
+                  >
+                </li>
+                <li class="header-nav__list-item">
+                  <a class="header-nav__list-link" href="./pets.html"
+                    >Our pets</a
+                  >
+                </li>
+                <li class="header-nav__list-item">
+                  <a class="header-nav__list-link" href="#help"
+                    >Help the shelter</a
+                  >
+                </li>
+                <li class="header-nav__list-item">
+                  <a class="header-nav__list-link" href="#contacts">Contacts</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
 
-        <button class="burger" type="button" aria-label="Open menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </header>
+          <button class="burger" type="button" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </header>
+
+        <div class="overlay"></div>
 
         <section class="not-only">
           <div class="container container-not-only">
@@ -119,45 +124,6 @@
               </button>
               <div class="our-friends__slider-viewport">
                 <ul class="our-friends__list">
-                  <li class="our-friends__list-item">
-                    <article class="our-friends__card">
-                      <img
-                        class="our-friends__card-img"
-                        src="./assets/images/pets-katrine.jpg"
-                        alt=""
-                      >
-                      <h3 class="our-friends__card-title">Katrine</h3>
-                      <button class="our-friends__card-button" type="button">
-                        Learn more
-                      </button>
-                    </article>
-                  </li>
-                  <li class="our-friends__list-item">
-                    <article class="our-friends__card">
-                      <img
-                        class="our-friends__card-img"
-                        src="./assets/images/pets-jennifer.jpg"
-                        alt=""
-                      >
-                      <h3 class="our-friends__card-title">Jennifer</h3>
-                      <button class="our-friends__card-button" type="button">
-                        Learn more
-                      </button>
-                    </article>
-                  </li>
-                  <li class="our-friends__list-item">
-                    <article class="our-friends__card">
-                      <img
-                        class="our-friends__card-img"
-                        src="./assets/images/pets-woody.jpg"
-                        alt=""
-                      >
-                      <h3 class="our-friends__card-title">Woody</h3>
-                      <button class="our-friends__card-button" type="button">
-                        Learn more
-                      </button>
-                    </article>
-                  </li>
                 </ul>
               </div>
               <button
@@ -165,18 +131,15 @@
                 type="button"
                 aria-label="Next slide"
               >
-<svg
-  width="14"
-  height="6"
-  viewBox="0 0 14 6"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <path
-    d="M0 4V2H11V0L14 3L11 6V4H0Z"
-    fill="currentColor"
-  />
-</svg>
+                <svg
+                  width="14"
+                  height="6"
+                  viewBox="0 0 14 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 4V2H11V0L14 3L11 6V4H0Z" fill="currentColor" />
+                </svg>
               </button>
             </div>
 
@@ -289,7 +252,9 @@
             </div>
 
             <div class="in-addition__content">
-              <h2 class="in-addition__title">You&nbsp;can&nbsp;also make&nbsp;a&nbsp;donation</h2>
+              <h2 class="in-addition__title">
+                You&nbsp;can&nbsp;also make&nbsp;a&nbsp;donation
+              </h2>
               <p class="in-addition__subtitle">
                 Name of the bank / Type of bank account
               </p>
@@ -392,6 +357,43 @@
         </div>
       </footer>
     </div>
-    <script src="./js/index.js"></script>
+
+    <div class="popup">
+      <div class="popup__content">
+        <button class="popup__close" type="button" aria-label="Close popup">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M7.42618 6.00003L11.7046 1.72158C12.0985 1.32775 12.0985 0.689213 11.7046 0.295433C11.3108 -0.0984027 10.6723 -0.0984027 10.2785 0.295433L5.99998 4.57394L1.72148 0.295377C1.32765 -0.098459 0.68917 -0.098459 0.295334 0.295377C-0.0984448 0.689213 -0.0984448 1.32775 0.295334 1.72153L4.57383 5.99997L0.295334 10.2785C-0.0984448 10.6723 -0.0984448 11.3108 0.295334 11.7046C0.68917 12.0985 1.32765 12.0985 1.72148 11.7046L5.99998 7.42612L10.2785 11.7046C10.6723 12.0985 11.3108 12.0985 11.7046 11.7046C12.0985 11.3108 12.0985 10.6723 11.7046 10.2785L7.42618 6.00003Z"
+              fill="#292929"
+            />
+          </svg>
+        </button>
+
+        <img class="popup__img" src="" alt="">
+
+        <div class="popup__info">
+          <h2 class="popup__title"></h2>
+          <p class="popup__subtitle"></p>
+          <p class="popup__description"></p>
+
+          <ul class="popup__list">
+            <li class="popup__item">
+              <b>Age:</b> <span class="popup__age"></span>
+            </li>
+            <li class="popup__item">
+              <b>Inoculations:</b> <span class="popup__inoculations"></span>
+            </li>
+            <li class="popup__item">
+              <b>Diseases:</b> <span class="popup__diseases"></span>
+            </li>
+            <li class="popup__item">
+              <b>Parasites:</b> <span class="popup__parasites"></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

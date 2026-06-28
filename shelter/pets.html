@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./assets/fonts/fonts.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/pets.css">
+    <script type="module" src="./js/pets.js"></script>
   </head>
   <body>
     <div class="page">
@@ -62,6 +63,8 @@
         </button>
       </header>
 
+      <div class="overlay"></div>
+
       <main>
         <section class="pets-page">
           <div class="container container-pets-page">
@@ -69,143 +72,39 @@
               Our friends who are&nbsp;looking for a house
             </h1>
 
-            <ul class="pets-page__list">
-              <li class="pets-page__item">
-                <article class="our-friends__card">
-                  <img
-                    class="our-friends__card-img"
-                    src="./assets/images/pets-katrine.jpg"
-                    alt=""
-                  >
-                  <h2 class="our-friends__card-title">Katrine</h2>
-                  <button class="our-friends__card-button" type="button">
-                    Learn more
-                  </button>
-                </article>
-              </li>
-
-              <li class="pets-page__item">
-                <article class="our-friends__card">
-                  <img
-                    class="our-friends__card-img"
-                    src="./assets/images/pets-jennifer.jpg"
-                    alt=""
-                  >
-                  <h2 class="our-friends__card-title">Jennifer</h2>
-                  <button class="our-friends__card-button" type="button">
-                    Learn more
-                  </button>
-                </article>
-              </li>
-
-              <li class="pets-page__item">
-                <article class="our-friends__card">
-                  <img
-                    class="our-friends__card-img"
-                    src="./assets/images/pets-woody.jpg"
-                    alt=""
-                  >
-                  <h2 class="our-friends__card-title">Woody</h2>
-                  <button class="our-friends__card-button" type="button">
-                    Learn more
-                  </button>
-                </article>
-              </li>
-
-              <li class="pets-page__item">
-                <article class="our-friends__card">
-                  <img
-                    class="our-friends__card-img"
-                    src="./assets/images/pets-sophia.jpg"
-                    alt=""
-                  >
-                  <h2 class="our-friends__card-title">Sophia</h2>
-                  <button class="our-friends__card-button" type="button">
-                    Learn more
-                  </button>
-                </article>
-              </li>
-
-              <li class="pets-page__item">
-                <article class="our-friends__card">
-                  <img
-                    class="our-friends__card-img"
-                    src="./assets/images/pets-timmy.jpg"
-                    alt=""
-                  >
-                  <h2 class="our-friends__card-title">Timmy</h2>
-                  <button class="our-friends__card-button" type="button">
-                    Learn more
-                  </button>
-                </article>
-              </li>
-
-              <li class="pets-page__item">
-                <article class="our-friends__card">
-                  <img
-                    class="our-friends__card-img"
-                    src="./assets/images/pets-charly.jpg"
-                    alt=""
-                  >
-                  <h2 class="our-friends__card-title">Charly</h2>
-                  <button class="our-friends__card-button" type="button">
-                    Learn more
-                  </button>
-                </article>
-              </li>
-
-              <li class="pets-page__item">
-                <article class="our-friends__card">
-                  <img
-                    class="our-friends__card-img"
-                    src="./assets/images/pets-scarlett.jpg"
-                    alt=""
-                  >
-                  <h2 class="our-friends__card-title">Scarlett</h2>
-                  <button class="our-friends__card-button" type="button">
-                    Learn more
-                  </button>
-                </article>
-              </li>
-
-              <li class="pets-page__item">
-                <article class="our-friends__card">
-                  <img
-                    class="our-friends__card-img"
-                    src="./assets/images/pets-freddie.jpg"
-                    alt=""
-                  >
-                  <h2 class="our-friends__card-title">Freddie</h2>
-                  <button class="our-friends__card-button" type="button">
-                    Learn more
-                  </button>
-                </article>
-              </li>
-            </ul>
+            <ul class="pets-page__list"></ul>
 
             <div class="pets-page__pagination">
               <button
-                class="pagination-button pagination-button--disabled"
+                class="pagination-button pagination-button--first"
                 type="button"
-                disabled
               >
                 &lt;&lt;
               </button>
               <button
-                class="pagination-button pagination-button--disabled"
+                class="pagination-button pagination-button--prev"
                 type="button"
-                disabled
               >
                 &lt;
               </button>
               <button
-                class="pagination-button pagination-button--active"
+                class="pagination-button pagination-button--active pagination-button--current"
                 type="button"
               >
                 1
               </button>
-              <button class="pagination-button" type="button">&gt;</button>
-              <button class="pagination-button" type="button">&gt;&gt;</button>
+              <button
+                class="pagination-button pagination-button--next"
+                type="button"
+              >
+                &gt;
+              </button>
+              <button
+                class="pagination-button pagination-button--last"
+                type="button"
+              >
+                &gt;&gt;
+              </button>
             </div>
           </div>
         </section>
@@ -287,6 +186,55 @@
         </div>
       </footer>
     </div>
-    <script src="./js/index.js"></script>
+
+    <template id="pet-card-template">
+      <li class="pets-page__item">
+        <article class="our-friends__card">
+          <img class="our-friends__card-img" src="" alt="">
+          <h2 class="our-friends__card-title"></h2>
+          <button class="our-friends__card-button" type="button">
+            Learn more
+          </button>
+        </article>
+      </li>
+    </template>
+
+    <div class="popup">
+      <div class="popup__content">
+        <button class="popup__close" type="button" aria-label="Close popup">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M7.42618 6.00003L11.7046 1.72158C12.0985 1.32775 12.0985 0.689213 11.7046 0.295433C11.3108 -0.0984027 10.6723 -0.0984027 10.2785 0.295433L5.99998 4.57394L1.72148 0.295377C1.32765 -0.098459 0.68917 -0.098459 0.295334 0.295377C-0.0984448 0.689213 -0.0984448 1.32775 0.295334 1.72153L4.57383 5.99997L0.295334 10.2785C-0.0984448 10.6723 -0.0984448 11.3108 0.295334 11.7046C0.68917 12.0985 1.32765 12.0985 1.72148 11.7046L5.99998 7.42612L10.2785 11.7046C10.6723 12.0985 11.3108 12.0985 11.7046 11.7046C12.0985 11.3108 12.0985 10.6723 11.7046 10.2785L7.42618 6.00003Z"
+              fill="#292929"
+            />
+          </svg>
+        </button>
+
+        <img class="popup__img" src="" alt="">
+
+        <div class="popup__info">
+          <h2 class="popup__title"></h2>
+          <p class="popup__subtitle"></p>
+          <p class="popup__description"></p>
+
+          <ul class="popup__list">
+            <li class="popup__item">
+              <b>Age:</b> <span class="popup__age"></span>
+            </li>
+            <li class="popup__item">
+              <b>Inoculations:</b> <span class="popup__inoculations"></span>
+            </li>
+            <li class="popup__item">
+              <b>Diseases:</b> <span class="popup__diseases"></span>
+            </li>
+            <li class="popup__item">
+              <b>Parasites:</b> <span class="popup__parasites"></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
