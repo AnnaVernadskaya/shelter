@@ -364,7 +364,7 @@ body.popup-open {
   border-radius: 9px;
   background-color: var(--color-light-s);
   cursor: pointer;
-  transition: background- 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .our-friends__card:hover {
@@ -512,7 +512,6 @@ body.popup-open {
   border-radius: 9px;
   padding: 10px 15px;
   max-width: 350px;
-  background-color: var(--color-primary);
   transition: background-color 0.3s ease;
 }
 
@@ -1180,5 +1179,75 @@ body.popup-open {
 
   .popup__description {
     text-align: justify;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.pets-page__list {
+  transition: opacity 0.3s ease;
+}
+
+.pets-page__list--fade {
+  opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.our-friends__list {
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.our-friends__list--move-left {
+  transform: translateX(-40px);
+  opacity: 0;
+}
+
+.our-friends__list--move-right {
+  transform: translateX(40px);
+  opacity: 0;
+}
+
+.our-friends__list--show {
+  animation: showCards 0.2s ease;
+}
+
+@keyframes showCards {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
   }
 }

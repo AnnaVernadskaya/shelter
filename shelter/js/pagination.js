@@ -1,14 +1,19 @@
 import { renderCards } from './cards.js';
 
 let currentPage = 1;
-const cardsPerPage = 8;
+
+function getCardsPerPage() {
+  if (window.innerWidth < 768) return 3;
+  if (window.innerWidth < 1280) return 6;
+  return 8;
+}
 
 export function createFullPetsList(petsArray) {
   const fullPetsList = [];
 
   for (let i = 0; i < 6; i++) {
-    const shuffled = [...petsArray].sort(() => Math.random() - 0.5);
-    fullPetsList.push(...shuffled);
+    const shiftedPets = [...petsArray.slice(i), ...petsArray.slice(0, i)];
+    fullPetsList.push(...shiftedPets);
   }
 
   return fullPetsList;
@@ -23,56 +28,61 @@ function getCardsForPage(arr, currentPage, cardsPerPage) {
 
 export function initPagination(petsArray) {
   const fullPetsList = createFullPetsList(petsArray);
-  const totalPages = fullPetsList.length / cardsPerPage;
 
   const buttonPrev = document.querySelector('.pagination-button--prev');
   const buttonNext = document.querySelector('.pagination-button--next');
   const buttonCurrent = document.querySelector('.pagination-button--current');
-const buttonFirst = document.querySelector('.pagination-button--first');
-const buttonLast = document.querySelector('.pagination-button--last');
+  const buttonFirst = document.querySelector('.pagination-button--first');
+  const buttonLast = document.querySelector('.pagination-button--last');
 
+  const cardsContainer = document.querySelector('.pets-page__list');
+
+  function getTotalPages() {
+    return fullPetsList.length / getCardsPerPage();
+  }
+
+  function setDisabled(button, isDisabled) {
+    button.classList.toggle('pagination-button--disabled', isDisabled);
+    button.disabled = isDisabled;
+  }
 
   function updateButtonsState() {
-    if (currentPage === 1) {
-      buttonPrev.classList.add('pagination-button--disabled');
-      buttonFirst.classList.add('pagination-button--disabled');
-      buttonPrev.disabled = true;
-      buttonFirst.disabled = true;
-    } else {
-      buttonPrev.classList.remove('pagination-button--disabled');
-      buttonPrev.disabled = false;
-            buttonFirst.classList.remove('pagination-button--disabled');
-      buttonFirst.disabled = false;
+    const totalPages = getTotalPages();
 
-    }
+    setDisabled(buttonPrev, currentPage === 1);
+    setDisabled(buttonFirst, currentPage === 1);
 
-    if (currentPage === totalPages) {
-      buttonNext.classList.add('pagination-button--disabled');
-      buttonLast.classList.add('pagination-button--disabled');
-
-      buttonNext.disabled = true;
-      buttonLast.disabled = true;
-    } else {
-      buttonNext.classList.remove('pagination-button--disabled');
-      buttonNext.disabled = false;
-      buttonLast.classList.remove('pagination-button--disabled');
-      buttonLast.disabled = false;
-    }
-
-
-
+    setDisabled(buttonNext, currentPage === totalPages);
+    setDisabled(buttonLast, currentPage === totalPages);
   }
 
   function renderPage() {
+    const cardsPerPage = getCardsPerPage();
+    const totalPages = getTotalPages();
+
+    if (currentPage > totalPages) {
+      currentPage = totalPages;
+    }
+
     const pageCards = getCardsForPage(fullPetsList, currentPage, cardsPerPage);
 
-    renderCards(pageCards);
-    buttonCurrent.textContent = currentPage;
-    updateButtonsState();
+    if (cardsContainer) {
+      cardsContainer.classList.add('pets-page__list--fade');
+    }
+
+    setTimeout(() => {
+      renderCards(pageCards);
+      buttonCurrent.textContent = currentPage;
+      updateButtonsState();
+
+      if (cardsContainer) {
+        cardsContainer.classList.remove('pets-page__list--fade');
+      }
+    }, 200);
   }
 
   buttonNext.addEventListener('click', () => {
-    if (currentPage < totalPages) {
+    if (currentPage < getTotalPages()) {
       currentPage++;
       renderPage();
     }
@@ -84,6 +94,22 @@ const buttonLast = document.querySelector('.pagination-button--last');
       renderPage();
     }
   });
+
+  buttonFirst.addEventListener('click', () => {
+    if (currentPage !== 1) {
+      currentPage = 1;
+      renderPage();
+    }
+  });
+
+  buttonLast.addEventListener('click', () => {
+    if (currentPage !== getTotalPages()) {
+      currentPage = getTotalPages();
+      renderPage();
+    }
+  });
+
+  window.addEventListener('resize', renderPage);
 
   renderPage();
 }
