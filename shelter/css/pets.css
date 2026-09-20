@@ -1,3 +1,10 @@
+.header-pets {
+  background-color: var(--theme-header-background);
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease;
+}
+
 .header-container {
   padding-bottom: 25px;
 }
@@ -6,11 +13,11 @@
   gap: 5px;
 }
 .logo__title {
-  color: var(--color-dark-l);
+  color: var(--theme-text-primary);
 }
 
 .logo__subtitle {
-  color: var(--color-dark-3xl);
+  color: var(--theme-control-text);
 }
 
 .header-nav {
@@ -18,16 +25,16 @@
 }
 
 .header-nav__list-link-pets {
-  color: var(--color-dark-l);
+  color: var(--theme-text-primary);
   transition: color 0.3s ease;
 }
 
 .header-nav__list-link--active {
-  color: var(--color-dark-3xl);
+  color: var(--theme-control-text);
 }
 
 .header-nav__list-link-pets:not(.header-nav__list-link--active):hover {
-  color: var(--color-dark-3xl);
+  color: var(--theme-control-text);
 }
 
 .burger {
@@ -35,22 +42,21 @@
 }
 
 .pets-page {
-  background-color: var(--color-light-l);
   padding: 0 10px;
+  background-color: var(--theme-background-secondary);
 }
 
 .pets-page__title {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 80px 0 60px;
   font-family: var(--font-primary);
   font-weight: 400;
   font-size: 35px;
   line-height: 130%;
   letter-spacing: 0.06em;
   text-align: center;
-  color: var(--color-dark-l);
-  max-width: 400px;
-  text-align: center;
-  margin: 0 auto;
-  padding: 80px 0 60px;
+  color: var(--theme-text-primary);
 }
 
 .pets-page__list {
@@ -66,32 +72,34 @@
   max-width: 340px;
   margin: 0 auto;
   padding: 60px 0 100px;
-  color: var(--color-dark-3xl);
+  color: var(--theme-control-text);
 }
 
 .pagination-button {
   width: 52px;
   height: 52px;
-  border: solid 2px var(--color-primary);
+  color: inherit;
+  border: 2px solid var(--color-primary);
   border-radius: 50%;
   transition:
+    color 0.3s ease,
     background-color 0.3s ease,
     border-color 0.3s ease;
 }
 
 .pagination-button:not(.pagination-button--disabled):hover {
+  color: var(--color-dark-3xl);
   background-color: var(--color-primary-light);
 }
 
 .pagination-button--active {
+  color: var(--color-dark-3xl);
   background-color: var(--color-primary);
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
 }
 
 .pagination-button--disabled {
-  border: solid 2px var(--color-dark-s);
+  color: var(--theme-disabled);
+  border-color: var(--theme-disabled);
   background-color: transparent;
   cursor: default;
   pointer-events: none;
@@ -162,7 +170,7 @@
   .burger span {
     width: 30px;
     height: 2px;
-    background-color: #000000;
+    background-color: var(--color-primary);
     transition: background-color 0.3s ease;
   }
 

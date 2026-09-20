@@ -69,6 +69,32 @@ img {
   --color-primary-light: #fddcc4;
   --start-screen-gradient-background: #211f20;
   --footer-gradient-background: #211f20;
+
+  --theme-background-primary: var(--color-light-xl);
+  --theme-background-secondary: var(--color-light-l);
+  --theme-surface: var(--color-light-s);
+  --theme-header-background: var(--color-light-xl);
+  --theme-text-primary: var(--color-dark-l);
+  --theme-text-secondary: var(--color-dark-xl);
+  --theme-text-muted: var(--color-dark-m);
+  --theme-control-text: var(--color-dark-3xl);
+  --theme-disabled: var(--color-dark-s);
+  --theme-popup-text: #000;
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+
+  --theme-background-primary: #211f20;
+  --theme-background-secondary: #292726;
+  --theme-surface: #363230;
+  --theme-header-background: #211f20;
+  --theme-text-primary: #f6f1ed;
+  --theme-text-secondary: #d4cec9;
+  --theme-text-muted: #aaa19b;
+  --theme-control-text: #f6f1ed;
+  --theme-disabled: #6f6965;
+  --theme-popup-text: #f6f1ed;
 }
 
 body {
@@ -77,7 +103,8 @@ body {
   font-weight: 400;
   font-size: 15px;
   line-height: 160%;
-  color: var(--color-dark-l);
+  color: var(--theme-text-primary);
+  background-color: var(--theme-background-primary);
 }
 
 body.popup-open {
@@ -192,7 +219,7 @@ body.popup-open {
 
   position: absolute;
   top: 2px;
-  right: 2px;
+  left: 2px;
 
   width: 24px;
   height: 24px;
@@ -220,11 +247,11 @@ body.popup-open {
 
 .theme-toggle__icon--moon {
   right: 7px;
+  display: none;
 }
 
 .theme-toggle__icon--sun {
   left: 7px;
-  display: none;
 }
 
 .theme-toggle:hover {
@@ -237,9 +264,22 @@ body.popup-open {
 }
 
 .theme-toggle:focus-visible {
-  outline: 2px solid var(--color-light-xl);
+  outline: 2px solid var(--theme-text-primary);
   outline-offset: 3px;
 }
+
+html[data-theme='dark'] .theme-toggle::before {
+  transform: translateX(24px);
+}
+
+html[data-theme='dark'] .theme-toggle__icon--moon {
+  display: block;
+}
+
+html[data-theme='dark'] .theme-toggle__icon--sun {
+  display: none;
+}
+
 .burger {
   display: none;
 }
@@ -310,7 +350,7 @@ body.popup-open {
 
 /* ABOUT */
 .about {
-  background-color: var(--color-light-xl);
+  background-color: var(--theme-background-primary);
 }
 
 .container-about {
@@ -344,19 +384,19 @@ body.popup-open {
   font-size: 35px;
   line-height: 130%;
   letter-spacing: 0.06em;
-  color: var(--color-dark-l);
+  color: var(--theme-text-primary);
 }
 
 .about__text {
   font-family: var(--font-secondary);
-  color: var(--color-dark-xl);
+  color: var(--theme-text-secondary);
   font-size: 15px;
   line-height: 160%;
 }
 
 /* OUR-FRIENDS */
 .our-friends {
-  background-color: var(--color-light-l);
+  background-color: var(--theme-background-secondary);
 }
 
 .container-our-friends {
@@ -376,7 +416,7 @@ body.popup-open {
   max-width: 400px;
   text-align: center;
   margin-bottom: 60px;
-  color: var(--color-dark-l);
+  color: var(--theme-text-primary);
 }
 
 .our-friends__slider {
@@ -420,8 +460,12 @@ body.popup-open {
   border-radius: 50%;
   border: solid 2px var(--color-primary);
   background-color: transparent;
-  color: var(--color-dark-3xl);
+  color: var(--theme-control-text);
   transition: 0.3s ease;
+}
+
+.our-friends__button-slider path {
+  fill: currentColor;
 }
 
 .our-friends__slider-viewport {
@@ -444,7 +488,8 @@ body.popup-open {
   max-width: 270px;
   overflow: hidden;
   border-radius: 9px;
-  background-color: var(--color-light-s);
+  color: var(--theme-text-primary);
+  background-color: var(--theme-surface);
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -468,7 +513,7 @@ body.popup-open {
   font-size: 17px;
   line-height: 130%;
   letter-spacing: 0.06em;
-  color: var(--color-dark-3xl);
+  color: var(--theme-control-text);
   border-radius: 100px;
   border: solid 2px var(--color-primary);
   padding: 13px 43px;
@@ -479,6 +524,7 @@ body.popup-open {
 }
 
 .our-friends__card:hover .our-friends__card-button {
+  color: var(--color-dark-3xl);
   background-color: var(--color-primary);
 }
 
@@ -493,12 +539,12 @@ body.popup-open {
 /* HELP */
 .help {
   padding-top: 80px;
-  background-color: var(--color-light-xl);
+  background-color: var(--theme-background-primary);
 }
 
 .help__title {
   font-family: var(--font-primary);
-  color: var(--color-dark-l);
+  color: var(--theme-text-primary);
   font-weight: 400;
   font-size: 35px;
   line-height: 130%;
@@ -536,13 +582,13 @@ body.popup-open {
   line-height: 115%;
   letter-spacing: 0.06em;
   text-align: center;
-  color: var(--color-dark-l);
+  color: var(--theme-text-primary);
 }
 
 /* IN-ADDITION */
 .in-addition {
   padding: 80px 0 100px;
-  background-color: var(--color-light-l);
+  background-color: var(--theme-background-secondary);
 }
 
 .container-in-addition {
@@ -576,7 +622,7 @@ body.popup-open {
   line-height: 130%;
   letter-spacing: 0.06em;
   max-width: 300px;
-  color: var(--color-dark-l);
+  color: var(--theme-text-primary);
 }
 
 .in-addition__subtitle {
@@ -584,7 +630,7 @@ body.popup-open {
   font-size: 15px;
   line-height: 110%;
   letter-spacing: 0.06em;
-  color: var(--color-dark-l);
+  color: var(--theme-text-primary);
 }
 
 .donation-card {
@@ -619,7 +665,7 @@ body.popup-open {
   font-style: italic;
   font-size: 12px;
   line-height: 150%;
-  color: var(--color-dark-m);
+  color: var(--theme-text-muted);
 }
 
 /* FOOTER */
@@ -724,6 +770,62 @@ body.popup-open {
 
 .footer__img img {
   width: 300px;
+}
+
+body,
+.header-pets,
+.about,
+.our-friends,
+.help,
+.in-addition,
+.pets-page,
+.our-friends__card,
+.popup__content,
+.popup__img {
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease;
+}
+
+html[data-theme='dark'] .header-pets {
+  background-color: var(--theme-header-background);
+}
+
+html[data-theme='dark'] .header-pets .logo__title,
+html[data-theme='dark'] .header-pets .logo__subtitle,
+html[data-theme='dark'] .header-nav__list-link-pets,
+html[data-theme='dark'] .pets-page__title {
+  color: var(--theme-text-primary);
+}
+
+html[data-theme='dark'] .header-nav__list-link-pets.header-nav__list-link--active,
+html[data-theme='dark']
+  .header-nav__list-link-pets:not(.header-nav__list-link--active):hover {
+  color: var(--theme-text-primary);
+}
+
+html[data-theme='dark'] .pets-page {
+  background-color: var(--theme-background-secondary);
+}
+
+html[data-theme='dark'] .pets-page__pagination,
+html[data-theme='dark'] .pagination-button {
+  color: var(--theme-control-text);
+}
+
+html[data-theme='dark'] .pagination-button--disabled {
+  color: var(--theme-disabled);
+  border-color: var(--theme-disabled);
+}
+
+html[data-theme='dark'] .pagination-button--active,
+html[data-theme='dark']
+  .pagination-button:not(.pagination-button--disabled):hover {
+  color: var(--color-dark-3xl);
+}
+
+html[data-theme='dark'] .header-pets .burger span {
+  background-color: var(--color-primary);
 }
 
 @media (max-width: 1220px) {
@@ -1152,7 +1254,7 @@ body.popup-open {
   width: min(1180px, calc(100vw - 120px));
   max-height: calc(100vh - 100px);
 
-  background-color: var(--color-light-s);
+  background-color: var(--theme-surface);
   border-radius: 9px;
 }
 
@@ -1177,11 +1279,19 @@ body.popup-open {
   background-color: var(--color-primary);
 }
 
+.popup__close path {
+  fill: var(--theme-control-text);
+}
+
+.popup__close:hover path {
+  fill: var(--color-dark-3xl);
+}
+
 .popup__img {
   width: 44%;
   object-fit: contain;
 
-  background-color: var(--color-light-s);
+  background-color: var(--theme-surface);
   border-radius: 9px 0 0 9px;
 }
 
@@ -1190,7 +1300,7 @@ body.popup-open {
   padding: 32px 42px;
   overflow-y: auto;
 
-  color: #000000;
+  color: var(--theme-popup-text);
 }
 
 .popup__title {
@@ -1291,7 +1401,7 @@ body.popup-open {
   font-family: var(--font-secondary);
   font-size: 14px;
   line-height: 140%;
-  color: var(--color-dark-l);
+  color: var(--theme-text-primary);
 
   cursor: pointer;
 }
@@ -1308,7 +1418,7 @@ body.popup-open {
 }
 
 .popup__radio:focus-visible {
-  outline: 2px solid var(--color-dark-3xl);
+  outline: 2px solid var(--theme-control-text);
   outline-offset: 2px;
 }
 
@@ -1347,7 +1457,7 @@ body.popup-open {
   font-family: var(--font-secondary);
   font-size: 13px;
   line-height: 140%;
-  color: var(--color-dark-m);
+  color: var(--theme-text-muted);
 }
 
 .popup__support-button {
