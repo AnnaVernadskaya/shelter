@@ -107,7 +107,20 @@
             <h1 class="pets-page__title">
               Our friends who are&nbsp;looking for a house
             </h1>
-
+            <div class="pets-categories">
+              <button
+                class="pets-categories__button pets-categories__button--active"
+                type="button"
+              >
+                All pets
+              </button>
+              <button class="pets-categories__button" type="button">
+                Dogs
+              </button>
+              <button class="pets-categories__button" type="button">
+                Cats
+              </button>
+            </div>
             <ul class="pets-page__list"></ul>
 
             <div class="pets-page__pagination">
@@ -248,10 +261,14 @@
           </svg>
         </button>
 
-        <img class="popup__img" src="" alt="" />
+        <img
+          class="popup__img"
+          src="./assets/images/pets-jennifer.jpg"
+          alt="Jennifer"
+        />
 
         <div class="popup__info">
-          <h2 class="popup__title"></h2>
+          <h2 class="popup__title">Pet details</h2>
           <p class="popup__subtitle"></p>
           <p class="popup__description"></p>
 

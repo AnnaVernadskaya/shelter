@@ -20,6 +20,28 @@
   color: var(--theme-text-primary);
 }
 
+.pets-categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.pets-categories__button {
+  padding: 10px 20px;
+  border: 2px solid var(--color-primary);
+  border-radius: 100px;
+  color: var(--theme-control-text);
+  transition: background-color 0.3s ease;
+}
+
+.pets-categories__button:hover,
+.pets-categories__button--active {
+  background-color: var(--color-primary);
+  color: var(--color-dark-3xl);
+}
+
 .pets-page__list {
   display: flex;
   flex-wrap: wrap;
@@ -118,4 +140,3 @@
     padding-bottom: 42px;
   }
 }
-
