@@ -82,7 +82,7 @@ img {
   --theme-popup-text: #000;
 }
 
-html[data-theme='dark'] {
+html.dark-theme {
   color-scheme: dark;
 
   --theme-background-primary: #211f20;
@@ -268,15 +268,15 @@ body.popup-open {
   outline-offset: 3px;
 }
 
-html[data-theme='dark'] .theme-toggle::before {
+html.dark-theme .theme-toggle::before {
   transform: translateX(24px);
 }
 
-html[data-theme='dark'] .theme-toggle__icon--moon {
+html.dark-theme .theme-toggle__icon--moon {
   display: block;
 }
 
-html[data-theme='dark'] .theme-toggle__icon--sun {
+html.dark-theme .theme-toggle__icon--sun {
   display: none;
 }
 
@@ -787,44 +787,44 @@ body,
     background-color 0.3s ease;
 }
 
-html[data-theme='dark'] .header-pets {
+html.dark-theme .header-pets {
   background-color: var(--theme-header-background);
 }
 
-html[data-theme='dark'] .header-pets .logo__title,
-html[data-theme='dark'] .header-pets .logo__subtitle,
-html[data-theme='dark'] .header-nav__list-link-pets,
-html[data-theme='dark'] .pets-page__title {
+html.dark-theme .header-pets .logo__title,
+html.dark-theme .header-pets .logo__subtitle,
+html.dark-theme .header-nav__list-link-pets,
+html.dark-theme .pets-page__title {
   color: var(--theme-text-primary);
 }
 
-html[data-theme='dark'] .header-nav__list-link-pets.header-nav__list-link--active,
-html[data-theme='dark']
+html.dark-theme .header-nav__list-link-pets.header-nav__list-link--active,
+html.dark-theme
   .header-nav__list-link-pets:not(.header-nav__list-link--active):hover {
   color: var(--theme-text-primary);
 }
 
-html[data-theme='dark'] .pets-page {
+html.dark-theme .pets-page {
   background-color: var(--theme-background-secondary);
 }
 
-html[data-theme='dark'] .pets-page__pagination,
-html[data-theme='dark'] .pagination-button {
+html.dark-theme .pets-page__pagination,
+html.dark-theme .pagination-button {
   color: var(--theme-control-text);
 }
 
-html[data-theme='dark'] .pagination-button--disabled {
+html.dark-theme .pagination-button--disabled {
   color: var(--theme-disabled);
   border-color: var(--theme-disabled);
 }
 
-html[data-theme='dark'] .pagination-button--active,
-html[data-theme='dark']
+html.dark-theme .pagination-button--active,
+html.dark-theme
   .pagination-button:not(.pagination-button--disabled):hover {
   color: var(--color-dark-3xl);
 }
 
-html[data-theme='dark'] .header-pets .burger span {
+html.dark-theme .header-pets .burger span {
   background-color: var(--color-primary);
 }
 
