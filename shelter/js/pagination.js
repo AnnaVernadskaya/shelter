@@ -3,7 +3,7 @@ import { renderCards } from './cards.js';
 let currentPage = 1;
 
 function getCardsPerPage() {
-  if (window.innerWidth < 768) return 3;
+  if (window.innerWidth <= 768) return 3;
   if (window.innerWidth < 1280) return 6;
   return 8;
 }

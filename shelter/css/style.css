@@ -926,7 +926,7 @@ html.dark-theme .header-pets .burger span {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .header-container {
     margin: 0 20px;
   }
@@ -1568,7 +1568,7 @@ html.dark-theme .header-pets .burger span {
 
 /* Mobile */
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .popup {
     padding: 44px 24px 20px;
   }

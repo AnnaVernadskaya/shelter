@@ -10,7 +10,7 @@ function getCardsCount() {
     return 3;
   }
 
-  if (window.innerWidth >= 768) {
+  if (window.innerWidth >= 769) {
     return 2;
   }
 

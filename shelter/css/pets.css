@@ -1,44 +1,5 @@
-.header-pets {
-  background-color: var(--theme-header-background);
-  transition:
-    color 0.3s ease,
-    background-color 0.3s ease;
-}
-
 .header-container {
   padding-bottom: 25px;
-}
-
-.logo {
-  gap: 5px;
-}
-.logo__title {
-  color: var(--theme-text-primary);
-}
-
-.logo__subtitle {
-  color: var(--theme-control-text);
-}
-
-.header-nav {
-  padding-bottom: 5px;
-}
-
-.header-nav__list-link-pets {
-  color: var(--theme-text-primary);
-  transition: color 0.3s ease;
-}
-
-.header-nav__list-link--active {
-  color: var(--theme-control-text);
-}
-
-.header-nav__list-link-pets:not(.header-nav__list-link--active):hover {
-  color: var(--theme-control-text);
-}
-
-.burger {
-  display: none;
 }
 
 .pets-page {
@@ -130,62 +91,15 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .container {
     max-width: 300px;
-  }
-
-  .header-pets {
-    max-width: 300px;
-    margin: 0 auto;
-    display: flex;
-    padding: 30px 10px;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .header-container {
-    padding: 0;
-    margin-left: 0;
   }
 
   .pets-page__title {
     text-align: center;
     font-size: 25px;
     padding: 38px 0;
-  }
-
-  .burger {
-    width: 30px;
-    height: 22px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    margin-bottom: 30px;
-  }
-
-  .burger span {
-    width: 30px;
-    height: 2px;
-    background-color: var(--color-primary);
-    transition: background-color 0.3s ease;
-  }
-
-  .header-nav__list-link {
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 160%;
-    color: var(--color-dark-s);
-  }
-
-  .header-nav__list-link--active {
-    color: var(--color-light-s);
-    border-bottom: solid 3px var(--color-primary);
-    cursor: default;
-    pointer-events: none;
   }
 
   .pets-page__item:nth-child(n + 4) {
@@ -205,8 +119,3 @@
   }
 }
 
-@media (max-width: 330px) {
-  .burger {
-    margin-bottom: 0;
-  }
-}
