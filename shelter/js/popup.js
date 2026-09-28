@@ -8,7 +8,22 @@ const popupAge = popup.querySelector('.popup__age');
 const popupInoculations = popup.querySelector('.popup__inoculations');
 const popupDiseases = popup.querySelector('.popup__diseases');
 const popupParasites = popup.querySelector('.popup__parasites');
+
 const closeButton = popup.querySelector('.popup__close');
+
+const supportPlanInputs = popup.querySelectorAll(
+  'input[name="support-plan"]',
+);
+const carePackageInputs = popup.querySelectorAll(
+  'input[name="care-package"]',
+);
+
+const supportPrice = popup.querySelector('.popup__support-price');
+const supportDescription = popup.querySelector(
+  '.popup__support-description',
+);
+
+let currentPet = null;
 
 function fillPopup(pet) {
   popupImg.src = pet.img;
@@ -23,18 +38,65 @@ function fillPopup(pet) {
   popupParasites.textContent = pet.parasites.join(', ');
 }
 
+function getSelectedValue(inputs) {
+  const selectedInput = [...inputs].find((input) => input.checked);
+
+  return selectedInput?.value;
+}
+
+function updateSupportSummary() {
+  if (!currentPet) {
+    return;
+  }
+
+  const selectedPlan = getSelectedValue(supportPlanInputs);
+  const selectedPackage = getSelectedValue(carePackageInputs);
+
+  const supportPackage =
+    currentPet.support.packages[selectedPackage];
+
+  if (selectedPlan === 'monthly') {
+    supportPrice.textContent = `$${supportPackage.monthlyPrice} per month`;
+  } else {
+    supportPrice.textContent = `$${supportPackage.oneTimePrice} one-time`;
+  }
+
+  supportDescription.textContent = supportPackage.description;
+}
+
+function resetSupportOptions() {
+  const monthlyInput = popup.querySelector(
+    'input[name="support-plan"][value="monthly"]',
+  );
+
+  const fullCareInput = popup.querySelector(
+    'input[name="care-package"][value="full"]',
+  );
+
+  monthlyInput.checked = true;
+  fullCareInput.checked = true;
+}
+
 function openPopup(pet) {
+  currentPet = pet;
+
   fillPopup(pet);
+  resetSupportOptions();
+  updateSupportSummary();
 
   popup.classList.add('is-active');
   document.body.classList.add('popup-open');
+
   document.addEventListener('keydown', handleEscClose);
 }
 
 function closePopup() {
   popup.classList.remove('is-active');
   document.body.classList.remove('popup-open');
+
   document.removeEventListener('keydown', handleEscClose);
+
+  currentPet = null;
 }
 
 function handleEscClose(evt) {
@@ -50,6 +112,14 @@ function initPopup() {
     if (evt.target === popup) {
       closePopup();
     }
+  });
+
+  supportPlanInputs.forEach((input) => {
+    input.addEventListener('change', updateSupportSummary);
+  });
+
+  carePackageInputs.forEach((input) => {
+    input.addEventListener('change', updateSupportSummary);
   });
 }
 
