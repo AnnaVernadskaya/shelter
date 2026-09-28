@@ -12,7 +12,11 @@ export function createFullPetsList(petsArray) {
   const fullPetsList = [];
 
   for (let i = 0; i < 6; i++) {
-    const shiftedPets = [...petsArray.slice(i), ...petsArray.slice(0, i)];
+    const shiftedPets = [
+      ...petsArray.slice(i),
+      ...petsArray.slice(0, i),
+    ];
+
     fullPetsList.push(...shiftedPets);
   }
 
@@ -27,33 +31,65 @@ function getCardsForPage(arr, currentPage, cardsPerPage) {
 }
 
 export function initPagination(petsArray) {
-  const fullPetsList = createFullPetsList(petsArray);
+  let fullPetsList = createFullPetsList(petsArray);
 
-  const buttonPrev = document.querySelector('.pagination-button--prev');
-  const buttonNext = document.querySelector('.pagination-button--next');
-  const buttonCurrent = document.querySelector('.pagination-button--current');
-  const buttonFirst = document.querySelector('.pagination-button--first');
-  const buttonLast = document.querySelector('.pagination-button--last');
+  const buttonPrev = document.querySelector(
+    '.pagination-button--prev',
+  );
+  const buttonNext = document.querySelector(
+    '.pagination-button--next',
+  );
+  const buttonCurrent = document.querySelector(
+    '.pagination-button--current',
+  );
+  const buttonFirst = document.querySelector(
+    '.pagination-button--first',
+  );
+  const buttonLast = document.querySelector(
+    '.pagination-button--last',
+  );
 
-  const cardsContainer = document.querySelector('.pets-page__list');
+  const cardsContainer = document.querySelector(
+    '.pets-page__list',
+  );
 
   function getTotalPages() {
-    return fullPetsList.length / getCardsPerPage();
+    return Math.ceil(
+      fullPetsList.length / getCardsPerPage(),
+    );
   }
 
   function setDisabled(button, isDisabled) {
-    button.classList.toggle('pagination-button--disabled', isDisabled);
+    button.classList.toggle(
+      'pagination-button--disabled',
+      isDisabled,
+    );
+
     button.disabled = isDisabled;
   }
 
   function updateButtonsState() {
     const totalPages = getTotalPages();
 
-    setDisabled(buttonPrev, currentPage === 1);
-    setDisabled(buttonFirst, currentPage === 1);
+    setDisabled(
+      buttonPrev,
+      currentPage === 1,
+    );
 
-    setDisabled(buttonNext, currentPage === totalPages);
-    setDisabled(buttonLast, currentPage === totalPages);
+    setDisabled(
+      buttonFirst,
+      currentPage === 1,
+    );
+
+    setDisabled(
+      buttonNext,
+      currentPage === totalPages,
+    );
+
+    setDisabled(
+      buttonLast,
+      currentPage === totalPages,
+    );
   }
 
   function renderPage() {
@@ -64,21 +100,39 @@ export function initPagination(petsArray) {
       currentPage = totalPages;
     }
 
-    const pageCards = getCardsForPage(fullPetsList, currentPage, cardsPerPage);
+    const pageCards = getCardsForPage(
+      fullPetsList,
+      currentPage,
+      cardsPerPage,
+    );
 
     if (cardsContainer) {
-      cardsContainer.classList.add('pets-page__list--fade');
+      cardsContainer.classList.add(
+        'pets-page__list--fade',
+      );
     }
 
     setTimeout(() => {
       renderCards(pageCards);
+
       buttonCurrent.textContent = currentPage;
+
       updateButtonsState();
 
       if (cardsContainer) {
-        cardsContainer.classList.remove('pets-page__list--fade');
+        cardsContainer.classList.remove(
+          'pets-page__list--fade',
+        );
       }
     }, 200);
+  }
+
+  function updatePets(newPetsArray) {
+    fullPetsList = createFullPetsList(newPetsArray);
+
+    currentPage = 1;
+
+    renderPage();
   }
 
   buttonNext.addEventListener('click', () => {
@@ -112,4 +166,6 @@ export function initPagination(petsArray) {
   window.addEventListener('resize', renderPage);
 
   renderPage();
+
+  return updatePets;
 }
