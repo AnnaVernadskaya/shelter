@@ -1289,10 +1289,10 @@ html.dark-theme .header-pets .burger span {
 
 .popup__img {
   width: 44%;
-  object-fit: contain;
+  object-fit: cover;
 
   background-color: var(--theme-surface);
-  border-radius: 9px 0 0 9px;
+  border-radius: 9px;
 }
 
 .popup__info {
